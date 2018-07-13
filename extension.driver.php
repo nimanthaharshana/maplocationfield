@@ -67,17 +67,17 @@
 			(float)$dpmLAT = 1 / 69.1703234283616;
 
 			// Latitude calculation
-			(float)$usrRLAT = $dpmLAT * $radius;
-			(float)$latMIN = $lat - $usrRLAT;
-			(float)$latMAX = $lat + $usrRLAT;
+			(float)$usrRLAT = (float)$dpmLAT * (float)$radius;
+			(float)$latMIN = (float)$lat - (float)$usrRLAT;
+			(float)$latMAX = (float)$lat + (float)$usrRLAT;
 
 			// Longitude calculation
-			(float)$mpdLON = 69.1703234283616 * cos($lat * (M_PI/180));
+			(float)$mpdLON = 69.1703234283616 * cos((float)$lat * (M_PI/180));
 			(float)$dpmLON = 1 / $mpdLON; // degrees per mile longintude
 			$usrRLON = $dpmLON * $radius;
 
-			$lonMIN = $lng - $usrRLON;
-			$lonMAX = $lng + $usrRLON;
+			$lonMIN = (float)$lng - (float)$usrRLON;
+			$lonMAX = (float)$lng + (float)$usrRLON;
 
 			return array("lonMIN" => $lonMIN, "lonMAX" => $lonMAX, "latMIN" => $latMIN, "latMAX" => $latMAX);
 		}
